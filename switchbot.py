@@ -10,7 +10,6 @@ from rich import print
 
 nonce = uuid.uuid4()
 t = f"{time.time() * 1000:.0f}"
-#t = int(round(time.time() * 1000))
 string_to_sign = '{}{}{}'.format(TOKEN, t, nonce)
 
 string_to_sign = bytes(string_to_sign, 'utf-8')
