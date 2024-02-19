@@ -95,6 +95,8 @@ runcmd:
   - su - cloudinit -c "mkdir -p ~/.ssh && chmod 700 ~/.ssh"
   - su - cloudinit -c "curl -sS https://github.com/maron-gt123.keys >> ~/.ssh/authorized_keys"
   - su - cloudinit -c "chmod 600 ~/.ssh/authorized_keys"
+  # install influxdb
+  - su - cloudinit -c "apt -y install influxdb influxdb-client"
   # change default shell to bash
   - chsh -s $(which bash) cloudinit
 EOF
