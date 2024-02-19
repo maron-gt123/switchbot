@@ -39,11 +39,6 @@ def record_sensor_data():
     battery = data["body"]["battery"] # バッテリ
 #    version = data["body"]["version"] # バージョン　※必要に感じたら使う
 
-#    print(humidity)　# 表示させたかったらコメントアウト
-#    print(temperature)　# 表示させたかったらコメントアウト
-#    print(battery)　# 表示させたかったらコメントアウト
-#    print(version)　# 表示させたかったらコメントアウト
-
 # データベースに接続
     try:
         conn = mariadb.connect(
