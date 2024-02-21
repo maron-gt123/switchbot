@@ -7,7 +7,7 @@ import uuid
 import requests
 import mariadb
 import datetime
-from config import TOKEN, SECRET, DEVICE_1, DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_SCHEMA
+from config import TOKEN, SECRET, DEVICE_1, DEVICE_2, DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_SCHEMA
 from rich import print
 
 def record_sensor_data():
@@ -37,7 +37,7 @@ def record_sensor_data():
     humidity = data["body"]["humidity"] # 湿度計
     temperature = data["body"]["temperature"] # 温度計
     battery = data["body"]["battery"] # バッテリ
-#    version = data["body"]["version"] # バージョン　※必要に感じたら使う
+    version = data["body"]["version"] # バージョン
 
 # データベースに接続
     try:
