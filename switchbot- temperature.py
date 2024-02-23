@@ -5,9 +5,9 @@ import hmac
 import base64
 import uuid
 import requests
-import mariadb
 import datetime
-from config import TOKEN, SECRET, DEVICE_1, DEVICE_2, DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_SCHEMA
+from influxdb import InfluxDBClient
+from config import TOKEN, SECRET, DEVICE_1, DB_HOST, DB_USER, DB_PASSWORD, DB_PORT, DB_DATABASE
 from rich import print
 
 def record_sensor_data():
@@ -41,38 +41,31 @@ def record_sensor_data():
 
 # データベースに接続
     try:
-        conn = mariadb.connect(
-            user=DB_USER,
+        client = InfluxDBClient(
+            username=DB_USER,
             password=DB_PASSWORD,
             host=DB_HOST,
+            port=DB_PORT,
             database=DB_DATABASE
         )
-        cursor = conn.cursor()
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS sensor_data (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                time TIMESTAMP,
-                humidity FLOAT,
-                temperature FLOAT,
-                battery FLOAT
-            )
-        """)
-
-    # データベースに挿入
-        current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        cursor.execute("INSERT INTO sensor_data (time, humidity, temperature, battery) VALUES (?, ?, ?, ?)", (current_time, humidity, temperature, battery))
-        conn.commit()
-        print("データを記録しました")
-        cursor.execute(DB_SCHEMA)
-
-    except mariadb.Error as e:
+        json_body = [
+            {
+                "measurement": "sensor_data",
+                "tags": {},
+                "fields": {
+                    "humidity": humidity,
+                    "temperature": temperature,
+                    "battery": battery,
+                    "version": version
+                }
+            }
+        ]
+        client.write_points(json_body)
+        print("データをInfluxDBに記録しました")
+    except Exception as e:
         print(f"Error: {e}")
 
-    finally:
-        if conn:
-            conn.close()
-
-# 1分ごとにデータを記録
+# 5分ごとにデータを記録
 while True:
     record_sensor_data()
-    time.sleep(60)  # 60秒待つ
+    time.sleep(300)  # 300秒待つ
