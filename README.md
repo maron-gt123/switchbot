@@ -22,10 +22,15 @@
            rm influxdb2-client-2.6.1-amd64.deb
 
      * influx setupより初期設定を実施(設定横目は以下)
-      * username
-      * password
-      * organization
-      * bucket
+
+           $ influx setup
+           > Welcome to InfluxDB 2.0!
+           ? Please type your primary username uchida
+           ? Please type your password **********
+           ? Please type your password again **********
+           ? Please type your primary organization name <組織名>
+           ? Please type your primary bucket name <defaultデータベース名>
+           ? Please type your retention period in hours, or 0 for infinite 0
      * Python3をインストール
    * Python3をインストール
   * ｄｖｄｓ
