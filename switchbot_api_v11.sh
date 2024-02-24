@@ -13,6 +13,6 @@ RESULT=$(
       --header "sign: ${SIGN}" \
       --header "t: ${T}" \
       --header "nonce: ${NONCE}" \
-      --header "Content-Type: application/json; charset=utf8" | jq '.')
+      --header "Content-Type: application/json; charset=utf8")
 
 echo "$RESULT"
