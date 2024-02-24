@@ -36,7 +36,7 @@
            apt install python3
      * Python3への追加機能実装
     
-           apt install python3-pip
+           apt install -y python3-pip
            pip install requests
    * Python3のコード作成
   * ｄｖｄｓ 
