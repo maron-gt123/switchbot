@@ -11,7 +11,15 @@
   * Pythonを活用しデータを取得
    * 前提条件
      * influxDBを使いデータ管理
-     * 本リポジトリではinfluxDBの導入は触れません
+
+           # install influxdb
+           wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.6.1-amd64.deb
+           sudo dpkg -i influxdb2-2.6.1-amd64.deb
+           wget https://dl.influxdata.com/influxdb/releases/influxdb2-client-2.6.1-amd64.deb
+           sudo dpkg -i influxdb2-client-2.6.1-amd64.deb
+           rm influxdb2-2.6.1-amd64.deb
+           rm influxdb2-client-2.6.1-amd64.deb
+
      * Python3を活用する
    * Python3をインストール
   * ｄｖｄｓ
