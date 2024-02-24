@@ -38,5 +38,6 @@
     
            apt install -y python3-pip
            pip3 install rich
+           pip install influxdb
    * Python3のコード作成
   * ｄｖｄｓ 
