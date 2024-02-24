@@ -9,7 +9,7 @@
      * 確認したtokenとsecretを以下のscriptの変数環境に代入し確認[switchbot_api_v11.sh](https://github.com/maron-gt123/switchbot/blob/main/switchbot_api_v11.sh)
      * switchbot_api_v11.shで取得したデバイスIDをもとにswitchbot_api_device_v11.shへ環境変数を追加し確認[switchbot_api_device_v11.sh](https://github.com/maron-gt123/switchbot/blob/main/switchbot_api_device_v11.sh)
   * Pythonを活用しデータを取得
-   * 前提条件
+   * 準備
      * influxDBを使いデータ管理
      * influxDBをインストール(2-2.6.1とする)
 
@@ -34,5 +34,6 @@
      * Python3をインストール
 
            apt install python3
-   * Python3をインストール
-  * ｄｖｄｓ
+     * Python3への追加機能実装
+   * Python3のコード作成
+  * ｄｖｄｓ 
