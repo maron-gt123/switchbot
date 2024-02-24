@@ -11,6 +11,7 @@
   * Pythonを活用しデータを取得
    * 前提条件
      * influxDBを使いデータ管理
+     * influxDBをインストール(2-2.6.1とする)
 
            # install influxdb
            wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.6.1-amd64.deb
@@ -20,6 +21,11 @@
            rm influxdb2-2.6.1-amd64.deb
            rm influxdb2-client-2.6.1-amd64.deb
 
-     * Python3を活用する
+     * influx setupより初期設定を実施(設定横目は以下)
+      * username
+      * password
+      * organization
+      * bucket
+     * Python3をインストール
    * Python3をインストール
   * ｄｖｄｓ
