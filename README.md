@@ -10,7 +10,7 @@
      * switchbot_api_v11.shで取得したデバイスIDをもとにswitchbot_api_device_v11.shへ環境変数を追加し確認[switchbot_api_device_v11.sh](https://github.com/maron-gt123/switchbot/blob/main/switchbot_api_device_v11.sh)
   * Pythonを活用しデータを取得
    * 前提条件
-    * influxDBを使いデータ管理　※本リポジトリではinfluxDBの導入は触れません
+    * influxDBを使いデータ管理※本リポジトリではinfluxDBの導入は触れません
     * Python3を活用する
 
   * ｄｖｄｓ
