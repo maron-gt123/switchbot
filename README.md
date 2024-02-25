@@ -40,4 +40,5 @@
            pip3 install rich
            pip install influxdb
    * Python3のコード作成
+    * デバイス情報がPythonでも表示可能か確認[switchbot.py](https://github.com/maron-gt123/switchbot/blob/main/switchbot.py)
   * ｄｖｄｓ 
