@@ -37,6 +37,7 @@
            apt install -y python3-pip
            pip3 install rich
            pip install influxdb
+           pip install influxdb-client
    * Python3のコード作成
      * 確認したtokenとsecretを以下のscriptの変数環境に代入し確認[switchbot_api_v11.py](https://github.com/maron-gt123/switchbot/blob/main/switchbot_api_v11.py)
      * token/secret/各種デバイスIDなど変数は[config.py](https://github.com/maron-gt123/switchbot/blob/main/config.py)で管理のため作成
