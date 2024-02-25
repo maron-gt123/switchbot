@@ -39,6 +39,6 @@
            pip install influxdb
    * Python3のコード作成
      * 確認したtokenとsecretを以下のscriptの変数環境に代入し確認[switchbot_api_v11.py](https://github.com/maron-gt123/switchbot/blob/main/switchbot_api_v11.py)
-     * 準備段階として変数は[config.py](https://github.com/maron-gt123/switchbot/blob/main/config.py)で管理
+     * token/secret/各種デバイスIDなど変数は[config.py](https://github.com/maron-gt123/switchbot/blob/main/config.py)で管理のため作成
      * デバイス情報がPythonでも表示可能か確認[switchbot_湿温度計用.py](https://github.com/maron-gt123/switchbot/blob/main/switchbot_temperature.py)もしくは[switchbot_電気プラグ用.py](https://github.com/maron-gt123/switchbot/blob/main/switchbot_voltage.py)
   * ｄｖｄｓ 
