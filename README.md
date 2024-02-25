@@ -41,5 +41,5 @@
            pip install influxdb
    * Python3のコード作成
      * 準備段階として変数は[config.py](https://github.com/maron-gt123/switchbot/blob/main/config.py)で管理
-     * デバイス情報がPythonでも表示可能か確認[switchbot_1.py](https://github.com/maron-gt123/switchbot/blob/main/switchbot-temperature.py)
+     * デバイス情報がPythonでも表示可能か確認[switchbot_1.py](https://github.com/maron-gt123/switchbot/blob/main/switchbot-temperature.py)[switchbot_2.py](https://github.com/maron-gt123/switchbot/blob/main/switchbot_voltage.py)
   * ｄｖｄｓ 
