@@ -1,17 +1,10 @@
+# swichbotの接続情報
 TOKEN = 'your_token_here'
 SECRET = 'your_secret_here'
 DEVICE_1 = 'your_device_id_here'
 DEVICE_2 = 'your_device_id_here'
-DB_HOST = 'localhost'
-DB_USER = 'your_DB_user_here'
-DB_PASSWORD = 'your_DB_password_here'
-DB_DATABASE = 'your_DB_database_here'
-DB_SCHEMA = """
-CREATE TABLE IF NOT EXISTS sensor_data (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    time TIMESTAMP,
-    humidity FLOAT,
-    temperature FLOAT,
-    battery FLOAT
-);
-"""
+# InfluxDBの接続情報
+INFLUXDB_URL = "http://localhost:8086"  # InfluxDBのURL
+INFLUXDB_TOKEN = "your_influxdb-token_here"  # InfluxDBのアクセストークン
+INFLUXDB_ORG = "your_influxdb-org_here"  # 組織名
+INFLUXDB_BUCKET = "your_influxdb-bucket_here"  # バケット名
