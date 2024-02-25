@@ -32,14 +32,17 @@ res = requests.get(api_endpoint, headers=headers)
 
 data = res.json()
 
-device = data["body"]['deviceId']
+device = data["body"]['deviceId'] #デバイスID
 humidity = data["body"]["humidity"] # 湿度計
 temperature = data["body"]["temperature"] # 温度計
 battery = data["body"]["battery"] # バッテリ
 version = data["body"]["version"] # バージョン
 
+print("デバイス名")
 print(device)
+print("湿度")
 print(humidity)
+print("温度")
 print(temperature)
+print("バッテリ")
 print(battery)
-print(version)
