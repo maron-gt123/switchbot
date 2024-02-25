@@ -45,5 +45,5 @@
        * [switchbot_湿温度計用.py](https://github.com/maron-gt123/switchbot/blob/main/switchbot_temperature.py)
        * [switchbot_電気プラグ用.py](https://github.com/maron-gt123/switchbot/blob/main/switchbot_voltage.py)
   * influxdbへの書き込み
-   * テンプレートはこちら(湿温度計)[switchbot-temperature.py](https://github.com/maron-gt123/switchbot/blob/main/switchbot-temperature.py)
+    * テンプレートはこちら(湿温度計)[switchbot-temperature.py](https://github.com/maron-gt123/switchbot/blob/main/switchbot-temperature.py)
   * ｄｖｄｓ 
