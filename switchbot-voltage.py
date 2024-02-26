@@ -19,53 +19,50 @@ def write_to_influxdb(device, voltage, weight, electricityOfDay, electricCurrent
     point = Point("device_data").tag("device", device).field("voltage", voltage).field("weight", weight).field("electricityOfDay", electricityOfDay).field("electricCurrent", electricCurrent).field("version", version)
     write_api.write(bucket=INFLUXDB_BUCKET, org=INFLUXDB_ORG, record=point)
 
-while True:
-    nonce = uuid.uuid4()
-    t = f"{time.time() * 1000:.0f}"
-    string_to_sign = '{}{}{}'.format(TOKEN, t, nonce)
-    string_to_sign = bytes(string_to_sign, 'utf-8')
-    secret = bytes(SECRET, 'utf-8')
-    sign = base64.b64encode(hmac.new(secret, msg=string_to_sign, digestmod=hashlib.sha256).digest())
+nonce = uuid.uuid4()
+t = f"{time.time() * 1000:.0f}"
+string_to_sign = '{}{}{}'.format(TOKEN, t, nonce)
+string_to_sign = bytes(string_to_sign, 'utf-8')
+secret = bytes(SECRET, 'utf-8')
+sign = base64.b64encode(hmac.new(secret, msg=string_to_sign, digestmod=hashlib.sha256).digest())
 
-#Build api header JSON
-    headers = {
-        'Authorization': TOKEN,
-        'sign': str(sign, "utf-8"),
-        't': t,
-        'nonce': str(nonce),
-        'Content-Type': 'application/json',
-        "charset": 'utf8'
-    }
+# Build api header JSON
+headers = {
+    'Authorization': TOKEN,
+    'sign': str(sign, "utf-8"),
+    't': t,
+    'nonce': str(nonce),
+    'Content-Type': 'application/json',
+    "charset": 'utf8'
+}
 
-    api_endpoint = f'https://api.switch-bot.com/v1.1/devices/{DEVICE_2}/status'
+api_endpoint = f'https://api.switch-bot.com/v1.1/devices/{DEVICE_2}/status'
 
-    res = requests.get(api_endpoint, headers=headers)
+res = requests.get(api_endpoint, headers=headers)
 
-    data = res.json()
+data = res.json()
 
-    device = data["body"]['deviceId'] #デバイスID
-    voltage = data["body"]["voltage"] # 電圧
-    weight = data["body"]["weight"] # 電力
-    electricityOfDay = data["body"]["electricityOfDay"] # デバイス使用時間
-    electricCurrent =  data["body"]["electricCurrent"] # 電流
-    version = data["body"]["version"] # バージョン
+device = data["body"]['deviceId'] #デバイスID
+voltage = data["body"]["voltage"] # 電圧
+weight = data["body"]["weight"] # 電力
+electricityOfDay = data["body"]["electricityOfDay"] # デバイス使用時間
+electricCurrent =  data["body"]["electricCurrent"] # 電流
+version = data["body"]["version"] # バージョン
 
-    #デバック用
-    #print("デバイス名")
-    #print(device)
-    #print("電圧")
-    #print(voltage)
-    #print("電力")
-    #print(weight)
-    #print("デバイス使用時間")
-    #print(electricityOfDay)
-    #print("電流")
-    #print(electricCurrent)
-    #print("バージョン")
-    #print(version)
+# デバック用
+#print("デバイス名")
+#print(device)
+#print("電圧")
+#print(voltage)
+#print("電力")
+#print(weight)
+#print("デバイス使用時間")
+#print(electricityOfDay)
+#print("電流")
+#print(electricCurrent)
+#print("バージョン")
+#print(version)
 
-    # データをInfluxDBに書き込む
-    write_to_influxdb(device, voltage, weight, electricityOfDay, electricCurrent, version)
-    print("書き込みました")
-    # 5分待機
-    time.sleep(300)  # 300秒 = 5分
+# データをInfluxDBに書き込む
+write_to_influxdb(device, voltage, weight, electricityOfDay, electricCurrent, version)
+print("書き込みました")
