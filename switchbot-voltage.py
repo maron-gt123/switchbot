@@ -16,6 +16,11 @@ write_api = client.write_api(write_options=SYNCHRONOUS)
 
 # データをInfluxDBに書き込む関数
 def write_to_influxdb(device, voltage, weight, electricityOfDay, electricCurrent, version):
+    # 電圧、電力、デバイス使用時間、電流を浮動小数点数に変換
+    voltage = float(voltage)
+    weight = float(weight)
+    electricityOfDay = float(electricityOfDay)
+    electricCurrent = float(electricCurrent)
     point = Point("device_data").tag("device", device).field("voltage", voltage).field("weight", weight).field("electricityOfDay", electricityOfDay).field("electricCurrent", electricCurrent).field("version", version)
     write_api.write(bucket=INFLUXDB_BUCKET, org=INFLUXDB_ORG, record=point)
 
