@@ -16,8 +16,10 @@ write_api = client.write_api(write_options=SYNCHRONOUS)
 
 # データをInfluxDBに書き込む関数
 def write_to_influxdb(device, humidity, temperature, battery, version):
-    # 温度を浮動小数点数に変換
+    # 温度、湿度、バッテリを浮動小数点数に変換
     temperature = float(temperature)
+    humidity = float(humidity)
+    battery = float(battery)
     point = Point("device_data").tag("device", device).field("humidity", humidity).field("temperature", temperature).field("battery", battery).field("version", version)
     write_api.write(bucket=INFLUXDB_BUCKET, org=INFLUXDB_ORG, record=point)
 
