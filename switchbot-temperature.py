@@ -5,7 +5,7 @@ import hmac
 import base64
 import uuid
 import requests
-from config import TOKEN, SECRET, DEVICE_1, DEVICE_CM_1, INFLUXDB_URL, INFLUXDB_TOKEN, INFLUXDB_ORG, INFLUXDB_BUCKET
+from config import TOKEN, SECRET, DEVICE_1, INFLUXDB_URL, INFLUXDB_TOKEN, INFLUXDB_ORG, INFLUXDB_BUCKET
 from rich import print
 from influxdb_client import InfluxDBClient, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
@@ -46,8 +46,7 @@ res = requests.get(api_endpoint, headers=headers)
 
 data = res.json()
 
-device = DEVICE_CM_1 #デバイス名
-#device = data["body"]['deviceId'] #デバイスID
+device = data["body"]['deviceId'] #デバイスID
 humidity = data["body"]["humidity"] # 湿度計
 temperature = data["body"]["temperature"] # 温度計
 battery = data["body"]["battery"] # バッテリ
