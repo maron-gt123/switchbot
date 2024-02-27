@@ -32,7 +32,7 @@
      * Python3をインストール
 
            apt install python3
-     * Python3への追加機能実装
+     * Python3へライブラリ実装
     
            apt install -y python3-pip
            pip3 install rich
