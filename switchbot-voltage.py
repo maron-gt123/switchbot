@@ -51,7 +51,7 @@ device = data["body"]['deviceId'] #デバイスID
 voltage = data["body"]["voltage"] # 電圧
 weight = data["body"]["weight"] # 電力
 electricityOfDay = data["body"]["electricityOfDay"] # デバイス使用時間
-electricCurrent =  data["body"]["electricCurrent"] # 電流
+electricCurrent =  data["body"]["electricCurrent"] /10 # 電流 1/10にしないとアンペアになりません
 version = data["body"]["version"] # バージョン
 
 # デバック用
