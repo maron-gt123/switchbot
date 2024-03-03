@@ -3,6 +3,7 @@ TOKEN = 'your_token_here'
 SECRET = 'your_secret_here'
 DEVICE_1 = 'your_device_id_here'
 DEVICE_2 = 'your_device_id_here'
+DEVICE_3 = 'your_device_id_here'
 # InfluxDBの接続情報
 INFLUXDB_URL = "http://localhost:8086"  # InfluxDBのURL
 INFLUXDB_TOKEN = "your_influxdb-token_here"  # InfluxDBのアクセストークン
